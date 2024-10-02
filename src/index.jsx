@@ -2,6 +2,10 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './style.css';
 
+import { Palette } from './components/Palette';
+
+import { palettes } from './palettes';
+
 const App = () => {
   return (
     <div className="container">
@@ -9,7 +13,10 @@ const App = () => {
         <h1>Barevné palety</h1>
       </header>
       <main>
-        <div className="palette">
+        {palettes.map((palette) => (
+          < Palette key={palette.name} paletteData={palette} />
+        ))}
+        {/* <div className="palette">
           <div className="palette-scheme palette-scheme--vertical">
             <img className="scheme-image" src="/img/mimosa-retreat.jpg" alt="Mimosa Retreat" />
             <div className="scheme-colors">
@@ -45,7 +52,7 @@ const App = () => {
 
             <p>Photo by <a href="https://unsplash.com/photos/wc9avd2RaN0" target="_blank">Christoffer Engström</a>.</p>
           </div>
-        </div>
+        </div> */}
       </main>
       <footer>
         <p>Czechitas, Digitální akademie: Web</p>
